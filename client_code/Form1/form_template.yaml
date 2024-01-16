@@ -7,21 +7,37 @@ components:
   properties: {}
   name: navbar_links
   layout_properties: {slot: nav-right}
-- name: sidebar
-  properties: {}
-  type: ColumnPanel
-  layout_properties: {slot: left-nav}
-  components:
-  - type: ColumnPanel
-    properties: {col_widths: '{}'}
-    name: content_panel
-    layout_properties: {grid_position: 'CTOPQZ,EHICNX'}
-    components: []
 - name: title
   properties: {text: Kanban boards, role: title}
   type: Label
   layout_properties: {slot: title}
-- name: flow_panel_1
-  properties: {}
-  type: FlowPanel
+- name: column_panel_1
+  properties: {spacing_below: small, spacing_above: small}
+  type: ColumnPanel
   layout_properties: {slot: default}
+  components:
+  - name: addTask_button
+    properties: {text: Add task, role: filled-button}
+    type: Button
+    layout_properties: {grid_position: 'VJTZHU,AYCZZI'}
+  - name: backlog_rp
+    properties: {item_template: Task, role: tonal-card}
+    type: RepeatingPanel
+    layout_properties: {grid_position: 'SRHPHX,LNOXWB'}
+  - name: inprogress_rp
+    properties: {item_template: Task, role: tonal-card}
+    type: RepeatingPanel
+    layout_properties: {grid_position: 'SRHPHX,ZOSVSY'}
+  - name: review_rp
+    properties: {item_template: Task, role: tonal-card}
+    type: RepeatingPanel
+    layout_properties: {grid_position: 'SRHPHX,EVPDUF'}
+  - name: done_rp
+    properties: {item_template: Task, role: tonal-card}
+    type: RepeatingPanel
+    layout_properties: {grid_position: 'SRHPHX,RACPQE'}
+  data_bindings: []
+- name: column_panel_2
+  properties: {}
+  type: ColumnPanel
+  layout_properties: {slot: left-nav}

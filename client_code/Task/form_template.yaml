@@ -1,0 +1,43 @@
+container: {type: ColumnPanel}
+components:
+- name: task_card
+  properties: {role: outlined-card, col_spacing: medium}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'ALJECR,NJDGIZ'}
+  components:
+  - name: name
+    properties: {text: Name}
+    type: Label
+    layout_properties: {grid_position: 'ZGFUXL,DIYNVN'}
+  - name: name_box
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'ZGFUXL,DSGEIE'}
+  - name: description
+    properties: {text: Description}
+    type: Label
+    layout_properties: {grid_position: 'RIPFON,DMCFSV'}
+  - name: description_box
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'RIPFON,AJCSHN'}
+  - name: dueDate
+    properties: {text: Due date}
+    type: Label
+    layout_properties: {grid_position: 'KDHUAY,EBIPCV'}
+  - name: dueDate_box
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'KDHUAY,RMHMPP'}
+  - name: status
+    properties: {text: Status, italic: true}
+    type: Label
+    layout_properties: {grid_position: 'IKGZUU,JUZYFV'}
+  - name: status_box
+    properties:
+      items: [Backlog, In-Progress, Review, Done]
+      role: outlined
+    type: DropDown
+    layout_properties: {grid_position: 'IKGZUU,EGPEAZ'}
+    event_bindings: {change: status_box_change}
+is_package: true
