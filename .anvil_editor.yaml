@@ -1,6 +1,8 @@
 unique_ids:
   forms:
     Form1: OKXAGFVYKXACORZ6AXRB56IQNBSL5Y57
+    Form1.ItemTemplate1: '1705396154462588739074694.8593'
+    Form1.RowTemplate1: '1705396121948619747541453.0247'
   modules: {}
   server_modules: {}
   assets:
