@@ -12,3 +12,11 @@ components:
   properties: {}
   name: navbar_links
   layout_properties: {slot: nav-right}
+- name: sidebar
+  properties: {}
+  type: ColumnPanel
+  layout_properties: {slot: left-nav}
+- name: title
+  properties: {text: Kanban boards, role: title}
+  type: Label
+  layout_properties: {slot: title}
