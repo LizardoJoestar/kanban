@@ -1,0 +1,21 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {html: '@theme:standard-page.html'}
+components:
+- type: FlowPanel
+  properties: {}
+  name: navbar_links
+  layout_properties: {slot: nav-right}
+- name: title
+  properties: {text: Kanban boards, role: title}
+  type: Label
+  layout_properties: {slot: title}
+- name: column_panel_2
+  properties: {}
+  type: ColumnPanel
+  layout_properties: {slot: left-nav}
+- name: kanban_board_1
+  properties: {}
+  type: form:KanbanBoard
+  layout_properties: {slot: default}

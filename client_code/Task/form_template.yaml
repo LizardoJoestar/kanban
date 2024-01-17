@@ -40,4 +40,8 @@ components:
     type: DropDown
     layout_properties: {grid_position: 'IKGZUU,EGPEAZ'}
     event_bindings: {change: status_box_change}
+  - name: delete_button
+    properties: {text: Delete task, align: right, role: tonal-button}
+    type: Button
+    layout_properties: {grid_position: 'QPBFOF,FYVDWX'}
 is_package: true
