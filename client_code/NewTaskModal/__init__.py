@@ -1,11 +1,11 @@
-from ._anvil_designer import ItemTemplate7Template
+from ._anvil_designer import NewTaskModalTemplate
 from anvil import *
 import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 
-class ItemTemplate7(ItemTemplate7Template):
+class NewTaskModal(NewTaskModalTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)

@@ -3,7 +3,7 @@ components:
 - name: task_card
   properties: {role: outlined-card, col_spacing: medium}
   type: ColumnPanel
-  layout_properties: {grid_position: 'ALJECR,NJDGIZ'}
+  layout_properties: {grid_position: 'AZSXVJ,NDUJRK'}
   components:
   - name: name
     properties: {text: Name}
