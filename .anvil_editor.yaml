@@ -16,7 +16,7 @@ unique_ids:
   modules:
     Globals: '1705552317583746496907707.7537'
   server_modules:
-    CRUD_Functions: '1705470518373603474343002.762'
+    Controller: '1705470518373603474343002.762'
   assets:
     standard-page.html: LRYIDOEUO6Z4VF3PVVJ5QOMZRC342LNF
     theme.css: N7OMIGNWWYP4QRHKSESPWJ5LAUSKCUB6
