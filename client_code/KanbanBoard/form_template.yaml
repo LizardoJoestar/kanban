@@ -11,11 +11,12 @@ components:
     properties: {text: Add task, role: filled-button}
     type: Button
     layout_properties: {grid_position: 'QXRKQZ,RUYRFN'}
+    event_bindings: {click: addTask_button_click}
   - name: label_1
     properties: {text: Backlog, align: center, bold: true, underline: false, role: null}
     type: Label
     layout_properties: {grid_position: 'TSMSYK,DVDQXK RWMEVE,BNORGG'}
-  - name: review_rp
+  - name: backlog_rp
     properties: {item_template: Task, role: tonal-card}
     type: RepeatingPanel
     layout_properties: {grid_position: 'TSMSYK,DVDQXK HTUJRY,UKSNBM'}
@@ -31,7 +32,7 @@ components:
     properties: {text: Review, align: center, bold: true}
     type: Label
     layout_properties: {grid_position: 'TSMSYK,WONJCY SCHGOI,AYECAP'}
-  - name: done_rp
+  - name: review_rp
     properties: {item_template: Task, role: tonal-card}
     type: RepeatingPanel
     layout_properties: {grid_position: 'TSMSYK,WONJCY TMBLOM,FVPJEL'}
@@ -39,7 +40,7 @@ components:
     properties: {text: Done, bold: true, align: center}
     type: Label
     layout_properties: {grid_position: 'TSMSYK,MGJYEI RNMKTW,FYCWPQ'}
-  - name: backlog_rp
+  - name: done_rp
     properties: {item_template: Task, role: tonal-card}
     type: RepeatingPanel
     layout_properties: {grid_position: 'TSMSYK,MGJYEI UFJZTQ,LQOVUT'}

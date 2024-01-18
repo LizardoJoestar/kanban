@@ -11,3 +11,11 @@ class NewTaskModal(NewTaskModalTemplate):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+
+  def add_button_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    name = self.name_box.text
+    description = self.description_box.text
+    dueDate = self.dueDate_box.text
+    status = self.status_box.selected_value
+    

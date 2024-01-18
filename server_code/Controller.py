@@ -4,6 +4,8 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
 
+# CRUD functions for Kanban tasks
+
 @anvil.server.callable
 def addTask(name, desc, dueDate, status, project):
   app_tables.task.add_row(name=name, description=desc, dueDate=dueDate, status=status, project=project)
@@ -19,3 +21,8 @@ def updateTask(taskID, name, desc, dueDate, status):
   app_tables.task.get_by_id(taskID)['description'] = desc
   app_tables.task.get_by_id(taskID)['dueDate'] = dueDate
   app_tables.task.get_by_id(taskID)['status'] = status
+
+@anvil.server.callable
+def getTasks(project):
+  # Get all tasks associated with a single project
+  return app_tables.task.get(project=project)
