@@ -15,3 +15,7 @@ class Task(TaskTemplate):
   def status_box_change(self, **event_args):
     """This method is called when an item is selected"""
     pass
+
+  def delete_button_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass

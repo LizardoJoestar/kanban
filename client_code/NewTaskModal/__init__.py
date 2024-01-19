@@ -14,8 +14,12 @@ class NewTaskModal(NewTaskModalTemplate):
 
   def add_button_click(self, **event_args):
     """This method is called when the button is clicked"""
+    # Collect data from modal
     name = self.name_box.text
     description = self.description_box.text
     dueDate = self.dueDate_box.text
     status = self.status_box.selected_value
+
+    # Send to database as a new row
+    anvil.server.call('addTask', name, description, dueDate, status, self.item)
     
