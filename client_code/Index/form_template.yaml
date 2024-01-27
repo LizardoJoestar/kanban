@@ -46,7 +46,7 @@ components:
     type: Link
     layout_properties: {grid_position: 'AZLPEK,XDUORQ'}
 - name: content_panel
-  properties: {}
+  properties: {visible: true}
   type: ColumnPanel
   layout_properties: {slot: default}
   components:
