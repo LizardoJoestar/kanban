@@ -7,15 +7,50 @@ components:
   properties: {}
   name: navbar_links
   layout_properties: {slot: nav-right}
+  components:
+  - name: link_logout
+    properties: {text: Logout, icon: 'fa:sign-out'}
+    type: Link
+    layout_properties: {}
 - name: title
-  properties: {text: Kanban boards, role: title}
+  properties: {text: Kanban, role: title}
   type: Label
   layout_properties: {slot: title}
-- name: column_panel_2
+- name: link_panel
   properties: {}
   type: ColumnPanel
   layout_properties: {slot: left-nav}
-- name: kanban_board_1
+  components:
+  - name: link_newProject
+    properties: {text: New project}
+    type: Link
+    layout_properties: {grid_position: 'MPZKON,IZWCOD'}
+  - name: link_listProjects
+    properties: {text: All projects}
+    type: Link
+    layout_properties: {grid_position: 'GYWWDT,QLUTMI'}
+  - name: link_kanban
+    properties: {text: Kanban board}
+    type: Link
+    layout_properties: {grid_position: 'ITMURX,CTWJMJ'}
+  - name: link_docs
+    properties: {text: Documentation}
+    type: Link
+    layout_properties: {grid_position: 'GILACR,CWRDMK'}
+  - name: link_reports
+    properties: {text: Reports}
+    type: Link
+    layout_properties: {grid_position: 'YJNYHB,NODCEH'}
+  - name: link_users
+    properties: {text: Users}
+    type: Link
+    layout_properties: {grid_position: 'AZLPEK,XDUORQ'}
+- name: content_panel
   properties: {}
-  type: form:KanbanBoard
+  type: ColumnPanel
   layout_properties: {slot: default}
+  components:
+  - name: kanban_board_1
+    properties: {}
+    type: form:KanbanBoard
+    layout_properties: {grid_position: 'ZSDHMU,KTTXXB'}

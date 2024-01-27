@@ -29,7 +29,8 @@ db_schema:
       type: string
     - name: project
       admin_ui: {width: 200, order: 4}
-      type: string
+      type: link_single
+      target: project
     title: Task
   project:
     client: none
@@ -42,5 +43,11 @@ db_schema:
       admin_ui: {width: 200, order: 1}
       type: link_multiple
       target: task
+    - name: started
+      admin_ui: {order: 0.5, width: 200}
+      type: date
+    - name: ended
+      admin_ui: {order: 0.75, width: 200}
+      type: date
     title: Project
 renamed: true
