@@ -17,4 +17,5 @@ class Index(IndexTemplate):
 
   def link_logout_click(self, **event_args):
     """This method is called when the link is clicked"""
-    pass
+    anvil.users.logout()
+    open_form("LogoutScreen")
