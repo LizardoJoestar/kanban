@@ -4,7 +4,7 @@ import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-from KanbanBoard import KanbanBoard
+from ..KanbanBoard import KanbanBoard
 
 class Index(IndexTemplate):
   def __init__(self, **properties):
