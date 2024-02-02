@@ -11,5 +11,6 @@ from anvil.tables import app_tables
 #    Module1.say_hello()
 #
 
-def say_hello():
-  print("Hello, world")
+def startup():
+  user = anvil.users.login_with_form()
+  open_form("Index")
