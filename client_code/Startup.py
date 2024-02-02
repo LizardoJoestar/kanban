@@ -3,6 +3,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from anvil import *
 
 # You can define variables and functions here, and use them from any form. 
 
