@@ -1,4 +1,4 @@
-from ._anvil_designer import Form1Template
+from ._anvil_designer import LogoutScreenTemplate
 from anvil import *
 import anvil.server
 import anvil.users
