@@ -9,7 +9,6 @@ from anvil.tables import app_tables
 #    from . import Module1
 #
 #    Module1.say_hello()
-#
 
 def startup():
   user = anvil.users.login_with_form()
