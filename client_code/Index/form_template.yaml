@@ -12,6 +12,7 @@ components:
     properties: {text: Logout, icon: 'fa:sign-out'}
     type: Link
     layout_properties: {}
+    event_bindings: {click: link_logout_click}
 - name: title
   properties: {text: Kanban, role: title}
   type: Label
