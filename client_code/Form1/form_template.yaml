@@ -1,0 +1,16 @@
+container: {type: ColumnPanel}
+components:
+- name: spacer
+  properties: {}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'KDVXEN,JZJSVP'}
+- name: label_1
+  properties: {text: You have logged out., align: center, role: title}
+  type: Label
+  layout_properties: {grid_position: 'KVSBYS,AJVRSX'}
+- name: login_button
+  properties: {text: Login again, role: filled-button}
+  type: Button
+  layout_properties: {grid_position: 'FCYXMB,QWSUSF'}
+  event_bindings: {click: login_button_click}
+is_package: true
