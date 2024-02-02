@@ -14,3 +14,7 @@ class Index(IndexTemplate):
     self.content_panel.add_component(KanbanBoard())
     # Any code you write here will run before the form opens.
     # Minotaur hotel
+
+  def link_logout_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    pass
