@@ -17,7 +17,7 @@ class NewTaskModal(NewTaskModalTemplate):
     # Collect data from modal
     name = self.name_box.text
     description = self.description_box.text
-    dueDate = self.dueDate_box.text
+    dueDate = self.dueDate_box.date
     status = self.status_box.selected_value
 
     # Send to database as a new row
