@@ -21,5 +21,6 @@ class NewTaskModal(NewTaskModalTemplate):
     status = self.status_box.selected_value
 
     # Send to database as a new row
+    currentProject = get_open_form().self.item
     anvil.server.call('addTask', name, description, dueDate, status, self.item)
     
