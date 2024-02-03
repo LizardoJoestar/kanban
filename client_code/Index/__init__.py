@@ -22,4 +22,5 @@ class Index(IndexTemplate):
 
   def link_kanban_click(self, **event_args):
     """This method is called when the link is clicked"""
+    # Opens project's kanban board
     self.content_panel.add_component(KanbanBoard())
