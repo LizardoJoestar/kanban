@@ -42,4 +42,5 @@ components:
   properties: {text: Cancel, role: tonal-button}
   type: Button
   layout_properties: {grid_position: 'LIRNVG,TSWUOJ'}
+  event_bindings: {click: cancel_button_click}
 is_package: true

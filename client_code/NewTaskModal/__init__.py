@@ -22,4 +22,8 @@ class NewTaskModal(NewTaskModalTemplate):
 
     # Send to database as a new row
     anvil.server.call('addTask', name, description, dueDate, status, self.item)
+
+  def cancel_button_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass
     
