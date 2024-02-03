@@ -16,7 +16,8 @@ class Index(IndexTemplate):
     self.content_panel.add_component(KanbanBoard())
     
     # Set current project in view
-
+    projectList = app_tables.project.search()
+    self.item = projectList[0]
 
   def link_logout_click(self, **event_args):
     """This method is called when the link is clicked"""
