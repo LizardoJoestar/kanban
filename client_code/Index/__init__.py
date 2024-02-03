@@ -19,3 +19,7 @@ class Index(IndexTemplate):
     """This method is called when the link is clicked"""
     anvil.users.logout()
     open_form("LogoutScreen")
+
+  def link_kanban_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    self.content_panel.add_component(KanbanBoard())

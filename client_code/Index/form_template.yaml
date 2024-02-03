@@ -34,6 +34,7 @@ components:
     properties: {text: Kanban board}
     type: Link
     layout_properties: {grid_position: 'ITMURX,CTWJMJ'}
+    event_bindings: {click: link_kanban_click}
   - name: link_docs
     properties: {text: Documentation}
     type: Link
