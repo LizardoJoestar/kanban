@@ -8,7 +8,7 @@ import anvil.server
 # CRUD functions for Kanban tasks
 
 @anvil.server.callable(require_user=True)
-def addTask(name, desc, dueDate, status, project="testProject"):
+def addTask(name, desc, dueDate, status, project):
   app_tables.task.add_row(name=name, description=desc, dueDate=dueDate, status=status, project=project)
 
 @anvil.server.callable(require_user=True)
