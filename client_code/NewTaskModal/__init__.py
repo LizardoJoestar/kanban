@@ -23,3 +23,10 @@ class NewTaskModal(NewTaskModalTemplate):
     # 'currentProject' is from Globals module
     anvil.server.call('addTask', name, description, dueDate, status, currentProject)
     
+    clearModalFields()
+  
+  def clearModalFields():
+    self.name_box.text = ""
+    self.description_box.text = ""
+    self.dueDate_box.text = ""
+    
