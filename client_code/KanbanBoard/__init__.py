@@ -32,5 +32,7 @@ class KanbanBoard(KanbanBoardTemplate):
     """This method is called when the button is clicked"""
     # This just opens the new task modal
     newTaskModal = NewTaskModal()
+
+    # Set due date default to today
     newTaskModal.dueDate_box.date = datetime.date.today()
     alert(newTaskModal, large=True, buttons=None)
