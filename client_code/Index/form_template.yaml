@@ -18,7 +18,7 @@ components:
   type: Label
   layout_properties: {slot: title}
 - name: link_panel
-  properties: {}
+  properties: {wrap_on: never}
   type: ColumnPanel
   layout_properties: {slot: left-nav}
   components:
@@ -49,7 +49,7 @@ components:
     layout_properties: {grid_position: 'AZLPEK,XDUORQ'}
     event_bindings: {click: link_users_click}
 - name: content_panel
-  properties: {visible: true}
+  properties: {visible: true, col_spacing: small}
   type: ColumnPanel
   layout_properties: {slot: default}
   components: []

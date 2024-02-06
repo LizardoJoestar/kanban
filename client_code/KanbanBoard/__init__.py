@@ -6,6 +6,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 from ..NewTaskModal import NewTaskModal
+from ..Task import Task
 from ..Globals import *
 
 class KanbanBoard(KanbanBoardTemplate):
