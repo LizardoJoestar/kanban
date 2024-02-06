@@ -28,3 +28,8 @@ class Index(IndexTemplate):
     # Opens project's kanban board
     self.content_panel.clear() # clear main panel
     self.content_panel.add_component(KanbanBoard()) # open current kanban
+
+  def link_users_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    # Opens user management panel
+    self.content_panel.clear() # clear main panel

@@ -47,6 +47,7 @@ components:
     properties: {text: Users}
     type: Link
     layout_properties: {grid_position: 'AZLPEK,XDUORQ'}
+    event_bindings: {click: link_users_click}
 - name: content_panel
   properties: {visible: true}
   type: ColumnPanel
