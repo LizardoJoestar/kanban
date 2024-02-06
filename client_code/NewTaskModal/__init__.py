@@ -5,6 +5,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 from ..Globals import * 
+import datetime
 
 class NewTaskModal(NewTaskModalTemplate):
   def __init__(self, **properties):
@@ -28,6 +29,6 @@ class NewTaskModal(NewTaskModalTemplate):
   def clearModalFields(self):
     self.name_box.text = ""
     self.description_box.text = ""
-    self.dueDate_box.text = ""
+    self.dueDate_box.date = datetime.date.today()
     self.status_box.selected_value = "Backlog"
     
