@@ -13,6 +13,7 @@ class Index(IndexTemplate):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+    # self.content_panel.width = "80%"
     # Open kanban by default
     self.content_panel.add_component(KanbanBoard())
     
