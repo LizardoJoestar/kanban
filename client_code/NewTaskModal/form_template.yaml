@@ -25,7 +25,7 @@ components:
   type: Label
   layout_properties: {grid_position: 'ZVCATS,YYMHQJ TDAUOW,CBFMKM'}
 - name: dueDate_box
-  properties: {}
+  properties: {pick_time: false}
   type: DatePicker
   layout_properties: {grid_position: 'ZVCATS,DHDVCX NTDTOI,SQWCER'}
 - name: status_box
