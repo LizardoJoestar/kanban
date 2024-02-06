@@ -17,6 +17,9 @@ class KanbanBoard(KanbanBoardTemplate):
     # get active project from Globals module:
     project = currentProject
 
+    # get a list of tasks related to active project:
+    tasks = app_tables.task.search(project=project)
+
 
   def addTask_button_click(self, **event_args):
     """This method is called when the button is clicked"""
