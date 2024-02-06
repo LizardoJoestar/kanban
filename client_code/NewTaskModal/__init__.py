@@ -24,7 +24,7 @@ class NewTaskModal(NewTaskModalTemplate):
     # 'currentProject' is from Globals module
     anvil.server.call('addTask', name, description, dueDate, status, currentProject)
     self.clearModalFields()
-    get_open_form().
+    get_open_form().refresh_kanban()
   
   def clearModalFields(self):
     self.name_box.text = ""
