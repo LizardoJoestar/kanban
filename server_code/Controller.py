@@ -27,3 +27,6 @@ def updateTask(taskID, name, desc, dueDate, status):
 def getTasks(project):
   # Get all tasks associated with a single project
   return app_tables.task.get(project=project)
+
+
+# CRUD functions for projects
