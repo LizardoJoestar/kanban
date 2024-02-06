@@ -13,10 +13,9 @@ class Index(IndexTemplate):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+    # Open kanban by default
     self.content_panel.add_component(KanbanBoard())
     
-    # Set current project in view
-    projectList = app_tables.project.search()
 
   def link_logout_click(self, **event_args):
     """This method is called when the link is clicked"""
