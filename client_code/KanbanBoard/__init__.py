@@ -17,14 +17,15 @@ class KanbanBoard(KanbanBoardTemplate):
     self.project = currentProject
 
     # Initial refresh
-    self.refresh_ui()
+    self.refresh_kanban()
 
-  def refresh_ui(self, **event_args):
-    self.backlog_rp.items = app_tables.task.search(project=self.project, status="Backlog")
-    self.inprogress_rp.items = app_tables.task.search(project=self.project, status="In-Progress")
-    self.review_rp.items = app_tables.task.search(project=self.project, status="Review")
-    self.done_rp.items = app_tables.task.search(project=self.project, status="Done")
+  def refresh_kanban(self, **event_args):
+    self.backlog_rp.items = anvil.server.call('refreshKanban', self.project, "Backlog")
+    self.inprogress_rp.items = anvil.server.call('refreshKanban', self.project, "In-Progress")
+    self.review_rp.items = anvil.server.call('refreshKanban', self.project, "Review")
+    self.done_rp.items = anvil.server.call('refreshKanban', self.project, "Done")
 
+  
   def addTask_button_click(self, **event_args):
     """This method is called when the button is clicked"""
     # This just opens the new task modal
