@@ -13,12 +13,11 @@ class KanbanBoard(KanbanBoardTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
-    # Any code you write here will run before the form opens.
     # get active project from Globals module:
     self.project = currentProject
 
-    # get a list of tasks related to active project:
-    self.tasks = app_tables.task.search(project=self.project)
+    # Initial refresh
+    self.refresh_ui()
 
   def refresh_ui(self, **event_args):
     self.backlog_rp.items = app_tables.task.search(project=self.project, status="Backlog")
