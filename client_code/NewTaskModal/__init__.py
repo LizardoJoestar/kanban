@@ -25,8 +25,9 @@ class NewTaskModal(NewTaskModalTemplate):
     
     clearModalFields()
   
-  def clearModalFields():
+  def clearModalFields(self):
     self.name_box.text = ""
     self.description_box.text = ""
     self.dueDate_box.text = ""
+    self.status_box.selected_value = kanban_types[0]
     
