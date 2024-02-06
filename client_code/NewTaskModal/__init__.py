@@ -24,7 +24,10 @@ class NewTaskModal(NewTaskModalTemplate):
     # 'currentProject' is from Globals module
     anvil.server.call('addTask', name, description, dueDate, status, currentProject)
     self.clearModalFields()
-    get_open_form().refresh_kanban()
+
+    # Every time a task is added, kanban board refreshes in the background
+    # Task modal remains in case user wants to add more tasks, until clicked away
+    get_open_form().refreshKanban() # Gets last opened form (Index) (check open_form details for more info)
   
   def clearModalFields(self):
     self.name_box.text = ""

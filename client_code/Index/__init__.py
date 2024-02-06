@@ -16,7 +16,15 @@ class Index(IndexTemplate):
     # self.content_panel.width = "80%"
     # Open kanban by default
     self.content_panel.add_component(KanbanBoard())
-    
+
+  def refreshKanban(self, **event_args):
+    # Delete current Kanban and add it again
+    # KanbanBoard will appear updated per its initialization
+    self.content_panel.clear()
+    self.content_panel.add_component(KanbanBoard())
+
+  
+  # LINKS:
 
   def link_logout_click(self, **event_args):
     """This method is called when the link is clicked"""

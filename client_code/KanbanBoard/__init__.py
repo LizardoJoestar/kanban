@@ -8,6 +8,7 @@ from anvil.tables import app_tables
 from ..NewTaskModal import NewTaskModal
 from ..Task import Task
 from ..Globals import *
+import datetime
 
 class KanbanBoard(KanbanBoardTemplate):
   def __init__(self, **properties):
@@ -31,4 +32,7 @@ class KanbanBoard(KanbanBoardTemplate):
     """This method is called when the button is clicked"""
     # This just opens the new task modal
     newTaskModal = NewTaskModal()
+
+    # Set due date default to today
+    newTaskModal.dueDate_box.date = datetime.date.today()
     alert(newTaskModal, large=True, buttons=None)
