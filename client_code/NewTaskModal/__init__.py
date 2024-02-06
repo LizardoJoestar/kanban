@@ -23,8 +23,8 @@ class NewTaskModal(NewTaskModalTemplate):
     # Send to database as a new row
     # 'currentProject' is from Globals module
     anvil.server.call('addTask', name, description, dueDate, status, currentProject)
-    
     self.clearModalFields()
+    get_open_form().
   
   def clearModalFields(self):
     self.name_box.text = ""
