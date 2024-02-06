@@ -229,7 +229,7 @@ color: %color:On Primary Container%;
 /*   top: 0; */
   left: 0;
   flex-shrink: 0;
-  min-width: 240px;
+  min-width: 15%;
   max-width: 400px;
 }
 
@@ -394,6 +394,7 @@ color: %color:On Primary Container%;
 .content {
   flex: 1;
   overflow-x: hidden;
+  font-size: 12px !important;
 }
 
 /* Components: App Bar */
@@ -1039,4 +1040,10 @@ div.plot-container.plotly svg.main-svg {
 
 .anvil-spinner {
     --anvil-spinner-bg: %color:Surface Variant%;
+}
+
+/* Additions */
+/* Also modified .content class, added font-size   */
+.form-control {
+  font-size: 12px !important;
 }

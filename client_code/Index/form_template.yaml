@@ -14,7 +14,7 @@ components:
     layout_properties: {}
     event_bindings: {click: link_logout_click}
 - name: title
-  properties: {text: Kanban, role: title}
+  properties: {text: OfficeOne, role: title}
   type: Label
   layout_properties: {slot: title}
 - name: link_panel
