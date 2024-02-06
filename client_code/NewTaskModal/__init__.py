@@ -20,6 +20,6 @@ class NewTaskModal(NewTaskModalTemplate):
     status = self.status_box.selected_value
 
     # Send to database as a new row
-    currentProject = 0
+    # 'currentProject' is from Globals module
     anvil.server.call('addTask', name, description, dueDate, status, currentProject)
     

@@ -5,6 +5,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 
 # Current active project:
+# Will be changed only by selecting another project in 'Project list' module
 projects = app_tables.project.search()
 currentProject = projects[0] # default first
 
