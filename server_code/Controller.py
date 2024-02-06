@@ -12,16 +12,14 @@ def addTask(name, desc, dueDate, status, project):
   app_tables.task.add_row(name=name, description=desc, dueDate=dueDate, status=status, project=project)
 
 @anvil.server.callable(require_user=True)
-def deleteTask(taskID):
-  if app_tables.task.get_by_id(taskID) is not None:
-    app_tables.task.get_by_id(taskID).delete()
+def deleteTask(row):
+  if row is not None:
+    row.delete()
 
 @anvil.server.callable(require_user=True)
-def updateTask(taskID, name, desc, dueDate, status):
-  app_tables.task.get_by_id(taskID)['name'] = name
-  app_tables.task.get_by_id(taskID)['description'] = desc
-  app_tables.task.get_by_id(taskID)['dueDate'] = dueDate
-  app_tables.task.get_by_id(taskID)['status'] = status
+def updateTask(row):
+  if row is not None:
+    app_tables.task.
 
 @anvil.server.callable(require_user=True)
 def getTasks(project):
