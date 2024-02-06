@@ -12,6 +12,12 @@ class Task(TaskTemplate):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+    # Set the task fields to the 'item' dictionary fields for each item
+    # 'self.item' is inherited from parent form (e.g., KanbanBoard)
+    self.name_box.text = self.item['name']
+    self.description_box.text = self.item['description']
+    self.dueDate_box.text = self.item['dueDate']
+    self.status_box.selected_value = self.item['status']
 
   def status_box_change(self, **event_args):
     """This method is called when an item is selected"""
