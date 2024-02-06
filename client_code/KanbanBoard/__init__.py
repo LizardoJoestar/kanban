@@ -15,11 +15,16 @@ class KanbanBoard(KanbanBoardTemplate):
 
     # Any code you write here will run before the form opens.
     # get active project from Globals module:
-    project = currentProject
+    self.project = currentProject
 
     # get a list of tasks related to active project:
-    tasks = app_tables.task.search(project=project)
+    self.tasks = app_tables.task.search(project=self.project)
 
+  def refresh_ui(self, **event_args):
+    self.backlog_rp.items = app_tables.task.search(project=self.project, status="Backlog")
+    self.inprogress_rp.items = app_tables.task.search(project=self.project, status="In-Progress")
+    self.review_rp.items = app_tables.task.search(project=self.project, status="Review")
+    self.done_rp.items = app_tables.task.search(project=self.project, status="Done")
 
   def addTask_button_click(self, **event_args):
     """This method is called when the button is clicked"""
