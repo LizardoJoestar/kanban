@@ -19,7 +19,7 @@ def deleteTask(row):
 @anvil.server.callable(require_user=True)
 def updateTask(row):
   if row is not None:
-    app_tables.task.
+    pass
 
 @anvil.server.callable(require_user=True)
 def getTasks(project):
