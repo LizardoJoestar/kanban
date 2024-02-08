@@ -6,7 +6,7 @@ from anvil.tables import app_tables
 
 # Current active project:
 # Will be changed only by selecting another project in 'Project list' module
-projects = app_tables.project.search()
+projects = anvil.server.call('getAllProjects')
 currentProject = projects[0] # default first
 
 # Other globals

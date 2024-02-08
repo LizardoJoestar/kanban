@@ -37,7 +37,7 @@ db_schema:
       target: project
     title: Task
   project:
-    client: search
+    client: none
     server: full
     columns:
     - name: name
