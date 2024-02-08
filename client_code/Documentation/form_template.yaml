@@ -1,0 +1,33 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{"SQODBS":20,"UORKGP":20,"GRQGOP":20}'}
+components:
+- name: title
+  properties: {role: title}
+  type: Label
+  layout_properties: {grid_position: 'DDWHVT,XROGOW'}
+- name: category_box
+  properties: {}
+  type: DropDown
+  layout_properties: {grid_position: 'OEAOXD,SQODBS'}
+- name: add_category_button
+  properties: {text: Add category, role: filled-button}
+  type: Button
+  layout_properties: {grid_position: 'OEAOXD,UORKGP'}
+- name: delete_category_button
+  properties: {text: Delete category, role: tonal-button}
+  type: Button
+  layout_properties: {grid_position: 'OEAOXD,GRQGOP'}
+- name: add_doc_button
+  properties: {text: Add item, role: tonal-button}
+  type: Button
+  layout_properties: {grid_position: 'OEAOXD,XTZMIS'}
+- name: docList_panel
+  properties: {}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'OECUPZ,JYQFUM'}
+- name: docPreview_panel
+  properties: {}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'OECUPZ,LIOPXP'}
+is_package: true

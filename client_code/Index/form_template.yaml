@@ -39,6 +39,7 @@ components:
     properties: {text: Documentation}
     type: Link
     layout_properties: {grid_position: 'GILACR,CWRDMK'}
+    event_bindings: {click: link_docs_click}
   - name: link_reports
     properties: {text: Reports}
     type: Link
