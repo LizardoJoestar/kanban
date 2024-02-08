@@ -60,8 +60,31 @@ def getAllProjects():
 @anvil.server.callable(require_user=True)
 def getAllCategories(project):
   # List comprehension, from iterable 'search()' select only the names column
+  # Get all categories from a single project
   return [r['name'] for r in app_tables.category.search(project=project)]
 
 @anvil.server.callable(require_user=True)
+def getCategories(name, project):
+  # Return all categories that match same name
+  return app_tables.category.search(name=name, project=project)
+
+@anvil.server.callable(require_user=True)
 def addCategory(name, project):
-  pass
+  app_tables.category.add_row(name=name, project=project)
+
+@anvil.server.callable(require_user=True)
+def deleteCategory(name, project):
+  row = app_tables.category.get(name=name, project=project)
+  if row is not None:
+    row.delete()
+
+########################################################################
+# CRUD functions for documentation
+
+@anvil.server.callable(require_user=True)
+def addDocument(name, category, created, doc, project):
+  app_tables.document.add_row(name=name, category=category, created=created, document=doc, project=project)
+
+@anvil.server.callable(require_user=True)
+def getDocsByCategory(category, project):
+  return app_tables.document.search(category=category, project=project)

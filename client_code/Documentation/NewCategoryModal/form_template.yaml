@@ -11,7 +11,20 @@ components:
 - name: spacer_1
   properties: {height: 32}
   type: Spacer
-  layout_properties: {grid_position: 'UQEYMG,OOKBXA'}
+  layout_properties: {grid_position: 'KSLKNU,JJUPBV'}
+- name: label_3
+  properties: {text: 'To delete a category, select one from the dropdown list.', italic: true,
+    align: center}
+  type: Label
+  layout_properties: {grid_position: 'KSLKNU,BVYQLI'}
+- name: spacer_3
+  properties: {height: 32}
+  type: Spacer
+  layout_properties: {grid_position: 'KSLKNU,FDEATI'}
+- name: spacer_4
+  properties: {height: 32}
+  type: Spacer
+  layout_properties: {grid_position: 'UQEYMG,LBZHKQ'}
 - name: label_1
   properties: {text: 'Current categories:'}
   type: Label
@@ -30,15 +43,16 @@ components:
   type: DropDown
   layout_properties: {grid_position: 'UQEYMG,RLCMAR AXLVRN,JMFTHZ'}
 - name: addCategory_box
-  properties: {}
+  properties: {placeholder: New category}
   type: TextBox
   layout_properties: {grid_position: 'UQEYMG,RLCMAR SRRBIL,SITVTA'}
 - name: delete_btn
   properties: {text: Delete, role: filled-button}
   type: Button
   layout_properties: {grid_position: 'UQEYMG,RLCMAR CBUDOT,FXWQWA'}
-- name: spacer_3
+  event_bindings: {click: delete_btn_click}
+- name: spacer_5
   properties: {height: 32}
   type: Spacer
-  layout_properties: {grid_position: 'UQEYMG,YKYJFA'}
+  layout_properties: {grid_position: 'UQEYMG,ZJWPCW'}
 is_package: true

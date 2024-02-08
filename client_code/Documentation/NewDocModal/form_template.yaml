@@ -8,16 +8,35 @@ components:
   properties: {text: 'Select category:', align: center}
   type: Label
   layout_properties: {grid_position: 'EOGVEO,IYGNEG'}
+- name: label_2
+  properties: {text: 'Selected file:', align: center}
+  type: Label
+  layout_properties: {grid_position: 'EOGVEO,IYGNEG FPAHJG,NUNTGT'}
 - name: category_box
   properties: {}
   type: DropDown
-  layout_properties: {grid_position: 'EOGVEO,AJHFCE'}
+  layout_properties: {grid_position: 'EOGVEO,AJHFCE PBDBGW,BQCZXC'}
+- name: filename
+  properties: {text: '...', italic: true, role: null, foreground: 'theme:Secondary'}
+  type: Label
+  layout_properties: {grid_position: 'EOGVEO,AJHFCE DXUQFL,YMTDOY'}
+- name: spacer_1
+  properties: {height: 9}
+  type: Spacer
+  layout_properties: {grid_position: 'EOGVEO,QGAXIO WKXONH,WPRFFA'}
 - name: file_loader
   properties: {role: tonal-button}
   type: FileLoader
-  layout_properties: {grid_position: 'EOGVEO,QGAXIO'}
+  layout_properties: {grid_position: 'EOGVEO,QGAXIO MMARJW,UNCSCW'}
+  event_bindings: {change: file_loader_change}
 - name: addDoc_btn
-  properties: {text: Add, role: filled-button}
+  properties: {text: Add, role: filled-button, enabled: true}
   type: Button
   layout_properties: {grid_position: 'GKFCEO,NJJLGJ'}
+  event_bindings: {click: addDoc_btn_click}
+- name: cancel_btn
+  properties: {text: Cancel, role: tonal-button}
+  type: Button
+  layout_properties: {grid_position: 'GKFCEO,MLMUVR'}
+  event_bindings: {click: cancel_btn_click}
 is_package: true
