@@ -6,22 +6,24 @@ components:
   properties: {role: title}
   type: Label
   layout_properties: {grid_position: 'DDWHVT,XROGOW'}
+- name: label_1
+  properties: {text: 'Select a category:', role: body, align: left}
+  type: Label
+  layout_properties: {grid_position: 'MGECKP,PALUNM'}
 - name: category_box
   properties: {}
   type: DropDown
   layout_properties: {grid_position: 'OEAOXD,SQODBS'}
-- name: add_category_button
-  properties: {text: Add category, role: filled-button}
+- name: categoryModal_btn
+  properties: {text: Manage categories, role: filled-button}
   type: Button
   layout_properties: {grid_position: 'OEAOXD,UORKGP'}
-- name: delete_category_button
-  properties: {text: Delete category, role: tonal-button}
+  event_bindings: {click: categoryModal_btn_click}
+- name: newDocModal_btn
+  properties: {text: Add document, role: tonal-button}
   type: Button
   layout_properties: {grid_position: 'OEAOXD,GRQGOP'}
-- name: add_doc_button
-  properties: {text: Add item, role: tonal-button}
-  type: Button
-  layout_properties: {grid_position: 'OEAOXD,XTZMIS'}
+  event_bindings: {click: newDocModal_btn_click}
 - name: docList_panel
   properties: {}
   type: ColumnPanel

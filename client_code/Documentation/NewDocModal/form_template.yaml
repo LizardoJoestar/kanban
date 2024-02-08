@@ -1,0 +1,23 @@
+container: {type: ColumnPanel}
+components:
+- name: title
+  properties: {role: title, text: Add document}
+  type: Label
+  layout_properties: {grid_position: 'QACLGF,YZOYUP'}
+- name: label_1
+  properties: {text: 'Select category:', align: center}
+  type: Label
+  layout_properties: {grid_position: 'EOGVEO,IYGNEG'}
+- name: category_box
+  properties: {}
+  type: DropDown
+  layout_properties: {grid_position: 'EOGVEO,AJHFCE'}
+- name: file_loader
+  properties: {role: tonal-button}
+  type: FileLoader
+  layout_properties: {grid_position: 'EOGVEO,QGAXIO'}
+- name: addDoc_btn
+  properties: {text: Add, role: filled-button}
+  type: Button
+  layout_properties: {grid_position: 'GKFCEO,NJJLGJ'}
+is_package: true

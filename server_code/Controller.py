@@ -52,3 +52,16 @@ def refreshKanban(project, status):
 @anvil.server.callable(require_user=True)
 def getAllProjects():
   return app_tables.project.search()
+
+
+########################################################################
+# CRUD functions for categories
+
+@anvil.server.callable(require_user=True)
+def getAllCategories(project):
+  # List comprehension, from iterable 'search()' select only the names column
+  return [r['name'] for r in app_tables.category.search(project=project)]
+
+@anvil.server.callable(require_user=True)
+def addCategory(name, project):
+  pass

@@ -7,8 +7,8 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 # if you want to initialize a form as an object, call it like this
 # (go to upper directory and import)
-from ..KanbanBoard import KanbanBoard 
-from ..Documentation import Documentation
+from ..Kanban.KanbanBoard import KanbanBoard
+from ..Documentation.DocFrame import DocFrame
 
 class Index(IndexTemplate):
   def __init__(self, **properties):
@@ -50,4 +50,4 @@ class Index(IndexTemplate):
     """This method is called when the link is clicked"""
     # Opens documentation management panel
     self.content_panel.clear()
-    self.content_panel.add_component(Documentation())
+    self.content_panel.add_component(DocFrame())

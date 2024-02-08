@@ -4,7 +4,7 @@ import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-from ..Globals import * 
+from ... import Globals
 import datetime
 
 class NewTaskModal(NewTaskModalTemplate):
@@ -22,7 +22,7 @@ class NewTaskModal(NewTaskModalTemplate):
 
     # Send to database as a new row
     # 'currentProject' is from Globals module
-    anvil.server.call('addTask', name, description, dueDate, status, currentProject)
+    anvil.server.call('addTask', name, description, dueDate, status, Globals.currentProject)
     self.clearModalFields()
 
     # Every time a task is added, kanban board refreshes in the background
