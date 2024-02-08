@@ -13,6 +13,7 @@ components:
     properties: {}
     type: TextBox
     layout_properties: {grid_position: 'TMZZHL,UOQQTW'}
+    event_bindings: {change: name_box_change}
   - name: description
     properties: {text: Description}
     type: Label
@@ -21,14 +22,16 @@ components:
     properties: {}
     type: TextBox
     layout_properties: {grid_position: 'KCEVEA,YTIWFV'}
+    event_bindings: {change: description_box_change}
   - name: dueDate
     properties: {text: Due date}
     type: Label
     layout_properties: {grid_position: 'MKRQLN,ISCUNG'}
   - name: dueDate_box
     properties: {}
-    type: TextBox
-    layout_properties: {grid_position: 'UTROPO,DLHWDC'}
+    type: DatePicker
+    layout_properties: {grid_position: 'JIHHKD,ZDZULT'}
+    event_bindings: {change: dueDate_box_change}
   - name: status
     properties: {text: Status, italic: true}
     type: Label

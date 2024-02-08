@@ -18,15 +18,18 @@ class KanbanBoard(KanbanBoardTemplate):
     # get active project from Globals module:
     self.project = currentProject
 
-    # Initial refresh
+    # Initial refresh. Will execute everytime board is added/created
     self.refresh_kanban()
 
   def refresh_kanban(self, **event_args):
+    # Set tasks in their columns
     self.backlog_rp.items = anvil.server.call('refreshKanban', self.project, "Backlog")
     self.inprogress_rp.items = anvil.server.call('refreshKanban', self.project, "In-Progress")
     self.review_rp.items = anvil.server.call('refreshKanban', self.project, "Review")
     self.done_rp.items = anvil.server.call('refreshKanban', self.project, "Done")
 
+    # Set title
+    self.title.text = self.project['name'] + " - Kanban"
   
   def addTask_button_click(self, **event_args):
     """This method is called when the button is clicked"""

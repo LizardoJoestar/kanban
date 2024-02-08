@@ -7,7 +7,7 @@ components:
   type: ColumnPanel
   layout_properties: {grid_position: 'GZRPMD,MFGJRM'}
   components:
-  - name: label_5
+  - name: title
     properties: {text: Kanban board, role: title}
     type: Label
     layout_properties: {grid_position: 'KTPQNN,GTUJOM'}

@@ -5,6 +5,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
 
+########################################################################
 # CRUD functions for Kanban tasks
 
 @anvil.server.callable(require_user=True)
@@ -17,9 +18,24 @@ def deleteTask(row):
     row.delete()
 
 @anvil.server.callable(require_user=True)
-def updateTask(row):
-  if row is not None:
-    pass
+def updateTask(row_id, value):
+  row = app_tables.task.get_by_id(row_id)
+  row['status'] = value
+
+@anvil.server.callable(require_user=True)
+def updateTaskName(row_id, value):
+  row = app_tables.task.get_by_id(row_id)
+  row['name'] = value
+
+@anvil.server.callable(require_user=True)
+def updateTaskDescription(row_id, value):
+  row = app_tables.task.get_by_id(row_id)
+  row['description'] = value
+
+@anvil.server.callable(require_user=True)
+def updateTaskDueDate(row_id, value):
+  row = app_tables.task.get_by_id(row_id)
+  row['dueDate'] = value
 
 @anvil.server.callable(require_user=True)
 def getTasks(project):
@@ -30,4 +46,9 @@ def getTasks(project):
 def refreshKanban(project, status):
   return app_tables.task.search(project=project, status=status)
   
+########################################################################
 # CRUD functions for projects
+
+@anvil.server.callable(require_user=True)
+def getAllProjects():
+  return app_tables.project.search()
