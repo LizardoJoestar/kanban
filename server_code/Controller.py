@@ -88,3 +88,8 @@ def addDocument(name, category, created, doc, project):
 @anvil.server.callable(require_user=True)
 def getDocsByCategory(category, project):
   return app_tables.document.search(category=category, project=project)
+
+@anvil.server.callable(require_user=True)
+def deleteDocsByCategory(category, project):
+  for row in app_tables.document.search(category=category, project=project):
+    row.delete()

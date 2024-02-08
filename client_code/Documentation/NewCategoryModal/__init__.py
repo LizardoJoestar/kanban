@@ -41,13 +41,11 @@ class NewCategoryModal(NewCategoryModalTemplate):
     """This method is called when the button is clicked"""
     if self.category_box.selected_value != None:
       matchingDocs = anvil.server.call('getDocsByCategory', self.category_box.selected_value, Globals.currentProject)
+      # if there aren't any docs associated with category, just delete
       if len(matchingDocs) == 0:
-        name = self.category_box.selected_value
-        anvil.server.call('deleteCategory', name, Globals.currentProject)
-        
-        # Refresh category dropdown list
-        self.category_box.items = anvil.server.call('getAllCategories', Globals.currentProject)
+        self.deleteCategory()
         Notification("Category deleted.").show()
+      # else, ask user if the want to delete ALL documents along with category
       else:
         result = alert(
           content="This category already contains documentation. Please delete any existing documents before deleting this category.\nIf you wish to delete all associated documents, click DELETE. If not, click Cancel.",
@@ -58,7 +56,17 @@ class NewCategoryModal(NewCategoryModalTemplate):
             ("Cancel", False)
           ])
 
-        if 
+        if result:
+          # if True, delete ALL documents with that category along with it
+          anvil.server.call('deleteDocsByCategory', self.category_box.selected_value, Globals.currentProject)
+          self.deleteCategory()
+          alert("Category and associated documentation deleted.")
     else:
       alert("Please select a category to delete.")
+
+  def deleteCategory(self, **event_args):
+    name = self.category_box.selected_value
+    anvil.server.call('deleteCategory', name, Globals.currentProject)
     
+    # Refresh category dropdown list
+    self.category_box.items = anvil.server.call('getAllCategories', Globals.currentProject)
