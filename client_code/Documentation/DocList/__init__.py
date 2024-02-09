@@ -15,5 +15,12 @@ class DocList(DocListTemplate):
     self.category = category
     self.project = project
 
+    # Initial refresh
+    self.refresh_doc_list()
+
+    # set event handler for refresh from a link
+    self.docList_rp.set_event_handler('x-deleted', self.refresh_doc_list)
+    
+  def refresh_doc_list(self, **event_args):
     # Set repeating panel items dictionary to be used by each doc link card
     self.docList_rp.items = anvil.server.call('getDocsByCategory', self.category, self.project)

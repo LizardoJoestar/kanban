@@ -19,31 +19,44 @@ class DocFrame(DocFrameTemplate):
     self.project = Globals.currentProject
 
     # Initial refresh. Will execute everytime module es added/created
-    self.refresh_docs()
+    self.refresh_frame()
 
-  def refresh_docs(self, **event_args):
+    self.docList_panel.set_event_handler('x-changed', self.refresh_doc_list)
+
+  def refresh_frame(self, **event_args):
     # Set title in accordance with active project
     self.title.text = self.project['name'] + " - Documentation"
 
     # Fill category dropdown with categories associated with active project
-    self.category_box.items = anvil.server.call('getAllCategories', self.project)
+    self.refresh_category_list()
+    
+    # Finally, fill in doc list panel
+    self.refresh_doc_list()
 
-  def refresh_list(self, **event_args):
+  def refresh_doc_list(self, **event_args):
     # This needs to be refreshed separately, by this form and others independently
+    self.docList_panel.clear()
     self.docList_panel.add_component(DocList(self.category_box.selected_value, self.project))
+
+  def refresh_category_list(self, **event_args):
+    self.category_box.items = anvil.server.call('getAllCategories', self.project)
   
   def categoryModal_btn_click(self, **event_args):
     """This method is called when the button is clicked"""
     modal = NewCategoryModal()     
     modal.category_box.items = anvil.server.call('getAllCategories', self.project)
-    alert(modal, large=True, buttons=None)
+    res = alert(modal, large=True, buttons=None)
+    if res == None:
+      self.refresh_category_list() # will always run when modal closes
 
   def newDocModal_btn_click(self, **event_args):
     """This method is called when the button is clicked"""
     modal = NewDocModal()
     modal.category_box.items = anvil.server.call('getAllCategories', self.project)
-    alert(modal, large=True, buttons=None)
+    res = alert(modal, large=True, buttons=None)
+    if res == None:
+      self.refresh_doc_list() # will always run when modal closes
 
   def category_box_change(self, **event_args):
     """This method is called when an item is selected"""
-    self.refresh_list()
+    self.refresh_doc_list()
