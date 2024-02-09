@@ -21,8 +21,6 @@ class DocFrame(DocFrameTemplate):
     # Initial refresh. Will execute everytime module es added/created
     self.refresh_frame()
 
-    self.docList_panel.set_event_handler('x-changed', self.refresh_doc_list)
-
   def refresh_frame(self, **event_args):
     # Set title in accordance with active project
     self.title.text = self.project['name'] + " - Documentation"
