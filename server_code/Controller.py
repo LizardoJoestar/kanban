@@ -90,6 +90,16 @@ def getDocsByCategory(category, project):
   return app_tables.document.search(category=category, project=project)
 
 @anvil.server.callable(require_user=True)
+def getDocumentByID(row_id):
+  return app_tables.document.get_by_id(row_id)['document']
+
+@anvil.server.callable(require_user=True)
 def deleteDocsByCategory(category, project):
   for row in app_tables.document.search(category=category, project=project):
+    row.delete()
+
+@anvil.server.callable(require_user=True)
+def deleteDocumentByID(row_id):
+  row = app_tables.document.get_by_id(row_id)
+  if row is not None:
     row.delete()

@@ -7,6 +7,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 from ..NewCategoryModal import NewCategoryModal
 from ..NewDocModal import NewDocModal
+from ..Doc
 from ... import Globals
 
 class DocFrame(DocFrameTemplate):
@@ -27,6 +28,9 @@ class DocFrame(DocFrameTemplate):
     # Fill category dropdown with categories associated with active project
     self.category_box.items = anvil.server.call('getAllCategories', self.project)
 
+  def refresh_list(self, **event_args):
+    
+  
   def categoryModal_btn_click(self, **event_args):
     """This method is called when the button is clicked"""
     modal = NewCategoryModal()     

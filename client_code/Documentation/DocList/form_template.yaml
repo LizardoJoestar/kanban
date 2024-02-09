@@ -1,7 +1,7 @@
 container: {type: ColumnPanel}
 components:
 - name: docList_rp
-  properties: {item_template: Documentation.DocList.ItemTemplate8}
+  properties: {item_template: Documentation.DocLink}
   type: RepeatingPanel
   layout_properties: {grid_position: 'SQCILL,DARCGO'}
 is_package: true

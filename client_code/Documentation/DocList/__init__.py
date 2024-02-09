@@ -5,10 +5,15 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from ..DocLink import DocLink
+from ... import Globals
 
 class DocList(DocListTemplate):
-  def __init__(self, **properties):
+  def __init__(self, category, project, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.category = category
+    self.project = project
 
-    # Any code you write here will run before the form opens.
+    # Set repeating panel items dictionary to be used by each doc link card
+    self.docList_rp.items = anvil.server.call('getDocsByCategory', self.category, self.project)
