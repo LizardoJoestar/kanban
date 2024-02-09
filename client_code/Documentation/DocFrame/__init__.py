@@ -7,7 +7,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 from ..NewCategoryModal import NewCategoryModal
 from ..NewDocModal import NewDocModal
-from ..Doc
+from ..DocList import DocList
 from ... import Globals
 
 class DocFrame(DocFrameTemplate):
@@ -29,7 +29,8 @@ class DocFrame(DocFrameTemplate):
     self.category_box.items = anvil.server.call('getAllCategories', self.project)
 
   def refresh_list(self, **event_args):
-    
+    # This needs to be refreshed separately, by this form and others independently
+    self.docList_panel.add_component(DocList(self.category_box.selected_value, self.project))
   
   def categoryModal_btn_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -42,3 +43,7 @@ class DocFrame(DocFrameTemplate):
     modal = NewDocModal()
     modal.category_box.items = anvil.server.call('getAllCategories', self.project)
     alert(modal, large=True, buttons=None)
+
+  def category_box_change(self, **event_args):
+    """This method is called when an item is selected"""
+    self.refresh_list()

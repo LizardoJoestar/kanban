@@ -5,6 +5,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from ..DocFrame import DocFrame
 import anvil.media
 
 class DocLink(DocLinkTemplate):
@@ -26,4 +27,5 @@ class DocLink(DocLinkTemplate):
     id = self.item.get_id()
     anvil.server.call('deleteDocumentByID', id)
     Notification("Document deleted.").show()
+    
     
