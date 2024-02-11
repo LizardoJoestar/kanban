@@ -7,7 +7,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 from ..NewTaskModal import NewTaskModal
 from ..Task import Task
-from ..Globals import *
+from ... import Globals
 import datetime
 
 class KanbanBoard(KanbanBoardTemplate):
@@ -16,7 +16,7 @@ class KanbanBoard(KanbanBoardTemplate):
     self.init_components(**properties)
 
     # get active project from Globals module:
-    self.project = currentProject
+    self.project = Globals.currentProject
 
     # Initial refresh. Will execute everytime board is added/created
     self.refresh_kanban()

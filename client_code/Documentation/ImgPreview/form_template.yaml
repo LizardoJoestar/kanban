@@ -1,0 +1,7 @@
+container: {type: ColumnPanel}
+components:
+- name: img_panel
+  properties: {}
+  type: Image
+  layout_properties: {grid_position: 'HZRYGC,XMCFAA'}
+is_package: true

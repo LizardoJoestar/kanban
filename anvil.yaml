@@ -83,4 +83,37 @@ db_schema:
       admin_ui: {order: 7, width: 200}
       type: datetime
     title: Users
+  document:
+    client: none
+    server: full
+    columns:
+    - name: name
+      admin_ui: {width: 200, order: 0}
+      type: string
+    - name: category
+      admin_ui: {width: 200, order: 1}
+      type: string
+    - name: created
+      admin_ui: {width: 200, order: 2}
+      type: date
+    - name: document
+      admin_ui: {width: 200, order: 3}
+      type: media
+    - name: project
+      admin_ui: {width: 200, order: 4}
+      type: link_single
+      target: project
+    title: Document
+  category:
+    client: none
+    server: full
+    columns:
+    - name: name
+      admin_ui: {width: 200, order: 0}
+      type: string
+    - name: project
+      admin_ui: {width: 200, order: 1}
+      type: link_single
+      target: project
+    title: Category
 renamed: true

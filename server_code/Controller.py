@@ -52,3 +52,54 @@ def refreshKanban(project, status):
 @anvil.server.callable(require_user=True)
 def getAllProjects():
   return app_tables.project.search()
+
+
+########################################################################
+# CRUD functions for categories
+
+@anvil.server.callable(require_user=True)
+def getAllCategories(project):
+  # List comprehension, from iterable 'search()' select only the names column
+  # Get all categories from a single project
+  return [r['name'] for r in app_tables.category.search(project=project)]
+
+@anvil.server.callable(require_user=True)
+def getCategories(name, project):
+  # Return all categories that match same name
+  return app_tables.category.search(name=name, project=project)
+
+@anvil.server.callable(require_user=True)
+def addCategory(name, project):
+  app_tables.category.add_row(name=name, project=project)
+
+@anvil.server.callable(require_user=True)
+def deleteCategory(name, project):
+  row = app_tables.category.get(name=name, project=project)
+  if row is not None:
+    row.delete()
+
+########################################################################
+# CRUD functions for documentation
+
+@anvil.server.callable(require_user=True)
+def addDocument(name, category, created, doc, project):
+  app_tables.document.add_row(name=name, category=category, created=created, document=doc, project=project)
+
+@anvil.server.callable(require_user=True)
+def getDocsByCategory(category, project):
+  return app_tables.document.search(category=category, project=project)
+
+@anvil.server.callable(require_user=True)
+def getDocumentByID(row_id):
+  return app_tables.document.get_by_id(row_id)['document']
+
+@anvil.server.callable(require_user=True)
+def deleteDocsByCategory(category, project):
+  for row in app_tables.document.search(category=category, project=project):
+    row.delete()
+
+@anvil.server.callable(require_user=True)
+def deleteDocumentByID(row_id):
+  row = app_tables.document.get_by_id(row_id)
+  if row is not None:
+    row.delete()

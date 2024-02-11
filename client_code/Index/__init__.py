@@ -5,7 +5,10 @@ import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-from ..KanbanBoard import KanbanBoard # if you want to initialize a form as an object, call it like this (go to upper directory and import)
+# if you want to initialize a form as an object, call it like this
+# (go to upper directory and import)
+from ..Kanban.KanbanBoard import KanbanBoard
+from ..Documentation.DocFrame import DocFrame
 
 class Index(IndexTemplate):
   def __init__(self, **properties):
@@ -28,6 +31,7 @@ class Index(IndexTemplate):
 
   def link_logout_click(self, **event_args):
     """This method is called when the link is clicked"""
+    # Logs out current user, gives option to return to login screen
     anvil.users.logout()
     open_form("LogoutScreen")
 
@@ -41,3 +45,9 @@ class Index(IndexTemplate):
     """This method is called when the link is clicked"""
     # Opens user management panel
     self.content_panel.clear() # clear main panel
+
+  def link_docs_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    # Opens documentation management panel
+    self.content_panel.clear()
+    self.content_panel.add_component(DocFrame())

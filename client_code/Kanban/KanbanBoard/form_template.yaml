@@ -21,7 +21,7 @@ components:
     type: Label
     layout_properties: {grid_position: 'TSMSYK,DVDQXK RWMEVE,BNORGG'}
   - name: backlog_rp
-    properties: {item_template: Task, role: tonal-card}
+    properties: {item_template: Kanban.Task, role: tonal-card}
     type: RepeatingPanel
     layout_properties: {grid_position: 'TSMSYK,DVDQXK HTUJRY,UKSNBM'}
   - name: label_2
@@ -29,7 +29,7 @@ components:
     type: Label
     layout_properties: {grid_position: 'TSMSYK,CMFWCJ HCANDN,GMQVJX'}
   - name: inprogress_rp
-    properties: {item_template: Task, role: tonal-card}
+    properties: {item_template: Kanban.Task, role: tonal-card}
     type: RepeatingPanel
     layout_properties: {grid_position: 'TSMSYK,CMFWCJ OBLSVW,NBGMQL'}
   - name: label_3
@@ -37,7 +37,7 @@ components:
     type: Label
     layout_properties: {grid_position: 'TSMSYK,WONJCY SCHGOI,AYECAP'}
   - name: review_rp
-    properties: {item_template: Task, role: tonal-card}
+    properties: {item_template: Kanban.Task, role: tonal-card}
     type: RepeatingPanel
     layout_properties: {grid_position: 'TSMSYK,WONJCY TMBLOM,FVPJEL'}
   - name: label_4
@@ -45,7 +45,7 @@ components:
     type: Label
     layout_properties: {grid_position: 'TSMSYK,MGJYEI RNMKTW,FYCWPQ'}
   - name: done_rp
-    properties: {item_template: Task, role: tonal-card}
+    properties: {item_template: Kanban.Task, role: tonal-card}
     type: RepeatingPanel
     layout_properties: {grid_position: 'TSMSYK,MGJYEI UFJZTQ,LQOVUT'}
 is_package: true
