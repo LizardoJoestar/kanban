@@ -46,6 +46,7 @@ class DocFrame(DocFrameTemplate):
     res = alert(modal, large=True, buttons=None)
     if res == None:
       self.refresh_category_list() # will always run when modal closes
+      self.refresh_doc_list() # In case a category deletion also deletes docs
 
   def newDocModal_btn_click(self, **event_args):
     """This method is called when the button is clicked"""
