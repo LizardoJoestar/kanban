@@ -11,9 +11,11 @@ from ..DocList import DocList
 from ... import Globals
 
 class DocFrame(DocFrameTemplate):
+  instanceList = []
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    DocFrame.instanceList.append(self) # Keep track of current instance of Doc module 
 
     # Get active project from Globals module
     self.project = Globals.currentProject

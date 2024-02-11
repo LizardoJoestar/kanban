@@ -9,6 +9,7 @@ components:
     properties: {role: selected}
     type: Link
     layout_properties: {grid_position: 'XADVPL,SILZVS'}
+    event_bindings: {click: title_link_click}
   - name: download_btn
     properties: {text: '', role: tonal-button, icon: 'fa:download', align: right}
     type: Button

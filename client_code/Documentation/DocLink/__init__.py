@@ -5,7 +5,11 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from ..ImgPreview import ImgPreview
+from ..Notice import Notice
 import anvil.media
+from ... import Globals
+import re
 
 class DocLink(DocLinkTemplate):
   def __init__(self, **properties):
@@ -29,5 +33,18 @@ class DocLink(DocLinkTemplate):
 
     # Refresh doc list
     self.parent.raise_event('x-deleted')
-    
+
+  def title_link_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    id = self.item.get_id()
+    doc = anvil.server.call('getDocumentByID', id)
+
+    # Check that doc is an image, to avoid unnecessarily instancing the viewer
+    if re.search("image\/", doc.content_type) != None:
+      view = ImgPreview()
+      view.img_panel.source = doc
+      Globals.setImgViewer(view)
+    else:
+      Globals.setNotImageNotice(Notice())
+
     

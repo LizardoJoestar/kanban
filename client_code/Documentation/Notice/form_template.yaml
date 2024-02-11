@@ -1,0 +1,8 @@
+container: {type: ColumnPanel}
+components:
+- name: notice
+  properties: {text: 'Click the download button to view PDFs, office documents, and
+      other media types.', italic: true, role: body, align: center}
+  type: Label
+  layout_properties: {grid_position: 'RBSTDU,YNNNVE'}
+is_package: true
