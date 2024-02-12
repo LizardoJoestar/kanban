@@ -1,0 +1,36 @@
+container: {type: ColumnPanel}
+components:
+- name: title
+  properties: {text: New project, role: title}
+  type: Label
+  layout_properties: {grid_position: 'JFEKFX,AONDUH'}
+- name: label_1
+  properties: {text: 'Enter basic project information in the following fields:', italic: true}
+  type: Label
+  layout_properties: {grid_position: 'LOYZXB,KHSDCL'}
+- name: label_2
+  properties: {text: 'Project name:'}
+  type: Label
+  layout_properties: {grid_position: 'OTGOII,PFUMXR GZTAJF,KUGHMH'}
+- name: label_3
+  properties: {text: 'Start date:'}
+  type: Label
+  layout_properties: {grid_position: 'OTGOII,PFUMXR KAXTJS,CHNXKO'}
+- name: name_box
+  properties: {}
+  type: TextBox
+  layout_properties: {grid_position: 'OTGOII,ADTRIQ WLHXTM,PGCNTN'}
+- name: startDate_box
+  properties: {}
+  type: DatePicker
+  layout_properties: {grid_position: 'OTGOII,ADTRIQ QBCDTO,WLEIFF'}
+- name: content1_panel
+  properties: {}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'RYHUVR,TSXMTD'}
+- name: add_btn
+  properties: {text: Add project, role: filled-button}
+  type: Button
+  layout_properties: {grid_position: 'IHRSJG,GMNMBG'}
+  event_bindings: {click: add_btn_click}
+is_package: true

@@ -1,0 +1,30 @@
+container: {type: ColumnPanel}
+components:
+- name: outlined_card_1
+  properties: {role: elevated-card}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'DSBOWF,YNYJPD'}
+  components:
+  - name: projectLink
+    properties: {role: selected, italic: false}
+    type: Link
+    layout_properties: {grid_position: 'KFRTCJ,UCDVXO'}
+    event_bindings: {click: projectLink_click}
+  - name: start_label
+    properties: {}
+    type: Label
+    layout_properties: {grid_position: 'KFRTCJ,INPQNK'}
+  - name: end_label
+    properties: {}
+    type: Label
+    layout_properties: {grid_position: 'KFRTCJ,FMMKZS'}
+  - name: edit_btn
+    properties: {text: '', role: elevated-button, icon: 'fa:edit', align: right}
+    type: Button
+    layout_properties: {grid_position: 'KFRTCJ,ALXEYQ'}
+    event_bindings: {click: edit_btn_click}
+  - name: delete_btn
+    properties: {text: '', role: tonal-button, icon: 'fa:trash', align: left}
+    type: Button
+    layout_properties: {grid_position: 'KFRTCJ,YPISZU'}
+is_package: true

@@ -1,0 +1,11 @@
+container: {type: ColumnPanel}
+components:
+- name: title
+  properties: {text: All projects, role: title}
+  type: Label
+  layout_properties: {grid_position: 'YQERDL,VJDAWZ'}
+- name: projectList_rp
+  properties: {item_template: AllProjects.ProjectCard}
+  type: RepeatingPanel
+  layout_properties: {grid_position: 'VMTLVB,ZZHTIQ'}
+is_package: true
