@@ -18,8 +18,11 @@ class ProjectFrame(ProjectFrameTemplate):
     self.refreshProjectList()
   
   def refreshProjectList(self):
-    self.activeProject.text = f"Active project: {Globals.currentProject['name']}"
-    
     if Globals.currentProject != None:
+      self.activeProject.text = f"Active Project: {Globals.currentProject['name']}"
       self.projectList_rp.items = anvil.server.call('getAllProjects')
+    else:
+      self.activeProject.text = "Active Project: None"
+      self.projectList_rp.items = None
+      # print(str(Globals.currentProject))
     
