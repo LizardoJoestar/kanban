@@ -10,6 +10,8 @@ from anvil.tables import app_tables
 from ..Kanban.KanbanBoard import KanbanBoard
 from ..Documentation.DocFrame import DocFrame
 from ..NoProjectNotice import NoProjectNotice
+from ..AllProjects.ProjectFrame import ProjectFrame
+from ..NewProject.NewProjectFrame import NewProjectFrame
 from .. import Globals
 
 class Index(IndexTemplate):
@@ -43,8 +45,12 @@ class Index(IndexTemplate):
   def link_kanban_click(self, **event_args):
     """This method is called when the link is clicked"""
     # Opens project's kanban board
-    self.content_panel.clear() # clear main panel
-    self.content_panel.add_component(KanbanBoard()) # open current kanban
+    if Globals.currentProject != None:
+      self.content_panel.clear() # clear main panel
+      self.content_panel.add_component(KanbanBoard()) # open current kanban
+    else:
+      self.content_panel.clear()
+      self.content_panel.add_component(NoProjectNotice())
 
   def link_users_click(self, **event_args):
     """This method is called when the link is clicked"""
@@ -54,5 +60,19 @@ class Index(IndexTemplate):
   def link_docs_click(self, **event_args):
     """This method is called when the link is clicked"""
     # Opens documentation management panel
+    if Globals.currentProject != None:
+      self.content_panel.clear()
+      self.content_panel.add_component(DocFrame())
+    else:
+      self.content_panel.clear()
+      self.content_panel.add_component(NoProjectNotice())
+
+  def link_listProjects_click(self, **event_args):
+    """This method is called when the link is clicked"""
     self.content_panel.clear()
-    self.content_panel.add_component(DocFrame())
+    self.content_panel.add_component(ProjectFrame())
+
+  def link_newProject_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    self.content_panel.clear()
+    self.content_panel.add_component(NewProjectFrame())

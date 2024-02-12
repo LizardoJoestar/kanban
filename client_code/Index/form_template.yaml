@@ -26,10 +26,12 @@ components:
     properties: {text: New project}
     type: Link
     layout_properties: {grid_position: 'MPZKON,IZWCOD'}
+    event_bindings: {click: link_newProject_click}
   - name: link_listProjects
     properties: {text: All projects}
     type: Link
     layout_properties: {grid_position: 'GYWWDT,QLUTMI'}
+    event_bindings: {click: link_listProjects_click}
   - name: link_kanban
     properties: {text: Kanban board}
     type: Link

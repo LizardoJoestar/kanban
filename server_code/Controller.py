@@ -18,6 +18,12 @@ def deleteTask(row):
     row.delete()
 
 @anvil.server.callable(require_user=True)
+def deleteTaskByProject(project):
+  rows = app_tables.task.search(project=project)
+  for row in rows:
+    row.delete()
+
+@anvil.server.callable(require_user=True)
 def updateTask(row_id, value):
   row = app_tables.task.get_by_id(row_id)
   row['status'] = value
@@ -53,6 +59,24 @@ def refreshKanban(project, status):
 def getAllProjects():
   return app_tables.project.search()
 
+@anvil.server.callable(require_user=True)
+def getProjectByName(name):
+  return app_tables.project.search(name=name)
+
+@anvil.server.callable(require_user=True)
+def getProjectByID(row_id):
+  return app_tables.project.get_by_id(row_id)
+
+@anvil.server.callable(require_user=True)
+def addNewProject(name, start):
+  app_tables.project.add_row(name=name, started=start) # Ended is none at first
+
+@anvil.server.callable(require_user=True)
+def updateProject(row_id, name, start, end):
+  row = app_tables.project.get_by_id(row_id)
+  row['name'] = name
+  row['started'] = start
+  row['ended'] = end
 
 ########################################################################
 # CRUD functions for categories
