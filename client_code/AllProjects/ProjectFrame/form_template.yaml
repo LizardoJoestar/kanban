@@ -1,7 +1,7 @@
 container: {type: ColumnPanel}
 components:
 - name: title
-  properties: {text: All projects, role: title}
+  properties: {text: All projects, role: title, spacing_above: none}
   type: Label
   layout_properties: {grid_position: 'YQERDL,VJDAWZ'}
 - name: activeProject
