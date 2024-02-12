@@ -26,8 +26,11 @@ if len(projects) != 0:
   currentProject = projects[0] # First project is default
 
 # Global active project variable setter, by 'Project list' module
-def setCurrentProject(value):
-  currentProject = value
+# def setCurrentProject(value):
+#   currentProject = value
+
+# def setCurrentToDefault():
+#   currentProject = anvil.server.call('getAllProjects')[0]
 
 
 ########################################################################
@@ -49,5 +52,5 @@ def setNotImageNotice(notice):
 ########################################################################
 # ProjectCard functions
 
-# def setActiveBanner():
-#   ProjectFrame.instanceList[-1].activeProject.text = f"Active project: {currentProject['name']}"
+# def setActiveBanner(value):
+#   ProjectFrame.instanceList[-1].activeProject.text = f"Active Project: {value}"

@@ -6,6 +6,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import datetime
+from ... import Globals
 
 class NewProjectFrame(NewProjectFrameTemplate):
   def __init__(self, **properties):
@@ -21,16 +22,22 @@ class NewProjectFrame(NewProjectFrameTemplate):
     start = self.startDate_box.date
 
     if name != "":
-      # Check duplicate projects first
-      if len(anvil.server.call('getProjectByName', name)) == 0:
-        anvil.server.call('addNewProject', name, start)
-  
-        # Notify and reset fields
-        alert(f"Project {name} has been added. You can now manage its kanban board and documentation.")
-        self.resetFields()
-      else:
-        alert("A project with that name already exists. Please use another name.")
-        self.resetFields()
+        # Check duplicate projects first
+        if len(anvil.server.call('getProjectByName', name)) == 0:
+          anvil.server.call('addNewProject', name, start)
+    
+          # Notify and reset fields
+          alert(f"Project {name} has been added. You can now manage its kanban board and documentation.")
+          self.resetFields()
+
+          # If there weren't any projects in database (and now it's one), set current to this
+          if len(anvil.server.call('getAllProjects')) == 1:
+            Globals.currentProject = anvil.server.call('getAllProjects')[0] # VERY IMPORTANT, BEST TO SET CURRENT DIRECTLY
+            # print("Current: " + str(Globals.currentProject))
+            # print("Projects table: " + str([r['name'] for r in anvil.server.call('getAllProjects')]))
+        else:
+          alert("A project with that name already exists. Please use another name.")
+          self.resetFields()
     else:
       alert("Project name cannot be empty, please enter one.")
 

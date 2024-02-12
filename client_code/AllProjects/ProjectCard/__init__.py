@@ -62,4 +62,18 @@ class ProjectCard(ProjectCardTemplate):
         self.deleteALL()
 
   def deleteALL(self):
-    pass
+    # Delete all tasks by this card project
+    anvil.server.call('deleteTaskByProject', self.item)
+
+    # Delete all documentation by this card project
+    anvil.server.call('deleteDocsByProject', self.item)
+
+    # Finally, delete project itself and refresh project list
+    # Also, if deleted project was current then set the new active one to the first
+    # on the project table
+    anvil.server.call('deleteProject', self.item)
+    if len(anvil.server.call('getAllProjects')) != 0:
+      Globals.currentProject = anvil.server.call('getAllProjects')[0]
+    else:
+      Globals.currentProject = None
+    self.parent.parent.refreshProjectList()

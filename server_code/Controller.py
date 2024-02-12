@@ -78,6 +78,11 @@ def updateProject(row_id, name, start, end):
   row['started'] = start
   row['ended'] = end
 
+@anvil.server.callable(require_user=True)
+def deleteProject(row):
+  if row is not None:
+    row.delete()
+
 ########################################################################
 # CRUD functions for categories
 
@@ -126,4 +131,9 @@ def deleteDocsByCategory(category, project):
 def deleteDocumentByID(row_id):
   row = app_tables.document.get_by_id(row_id)
   if row is not None:
+    row.delete()
+
+@anvil.server.callable(require_user=True)
+def deleteDocsByProject(project):
+  for row in app_tables.document.search(project=project):
     row.delete()
