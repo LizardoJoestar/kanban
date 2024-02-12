@@ -9,16 +9,21 @@ from anvil.tables import app_tables
 # (go to upper directory and import)
 from ..Kanban.KanbanBoard import KanbanBoard
 from ..Documentation.DocFrame import DocFrame
+from ..NoProjectNotice import NoProjectNotice
+from .. import Globals
 
 class Index(IndexTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
-    # Any code you write here will run before the form opens.
-    # self.content_panel.width = "80%"
-    # Open kanban by default
-    self.content_panel.add_component(KanbanBoard())
+    # Check the active project
+    if Globals.currentProject != None:
+      # Open kanban by default
+      self.content_panel.add_component(KanbanBoard())
+    else:
+      # When no projects are in the database, display notice
+      self.content_panel.add_component(NoProjectNotice())
 
   def refreshKanban(self, **event_args):
     # Delete current Kanban and add it again

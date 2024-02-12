@@ -1,0 +1,12 @@
+container: {type: ColumnPanel}
+components:
+- name: spacer_1
+  properties: {height: 87}
+  type: Spacer
+  layout_properties: {grid_position: 'YGEPEX,KTSJKH'}
+- name: notice
+  properties: {text: No projects have been created. Create and select one to display.,
+    align: center, italic: true, role: body, font_size: 20}
+  type: Label
+  layout_properties: {grid_position: 'YIUZXH,LXYCJZ'}
+is_package: true

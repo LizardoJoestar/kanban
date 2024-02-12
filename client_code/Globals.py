@@ -17,8 +17,16 @@ Consider further implementing this later!
 
 # Current active project:
 # Will be changed only by selecting another project in 'Project list' module
+
+# Active project initialization
+currentProject = None 
 projects = anvil.server.call('getAllProjects')
-currentProject = projects[0] # default first
+if len(projects) != 0:
+  currentProject = projects[0] # First project is default
+
+# Global active project variable setter, by 'Project list' module
+def setCurrentProject(value):
+  currentProject = value
 
 
 ########################################################################
