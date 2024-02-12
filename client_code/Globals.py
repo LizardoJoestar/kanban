@@ -4,6 +4,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 from .Documentation.DocFrame import DocFrame
+from .AllProjects.ProjectFrame import ProjectFrame
 
 """
 Globals module is a SINGLETON
@@ -44,3 +45,9 @@ def setNotImageNotice(notice):
   # If doc is not an image, display notice telling user to download instead
   DocFrame.instanceList[-1].docPreview_panel.clear()
   DocFrame.instanceList[-1].docPreview_panel.add_component(notice)
+
+########################################################################
+# ProjectCard functions
+
+# def setActiveBanner():
+#   ProjectFrame.instanceList[-1].activeProject.text = f"Active project: {currentProject['name']}"

@@ -6,6 +6,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 from ..ProjectEditModal import ProjectEditModal
+from ... import Globals
 
 class ProjectCard(ProjectCardTemplate):
   def __init__(self, **properties):
@@ -27,7 +28,10 @@ class ProjectCard(ProjectCardTemplate):
     res = alert(editModal, large=True, buttons=None)
     if res == None:
       self.parent.parent.refreshProjectList()
-
+      # Globals.setActiveBanner()
+  
   def projectLink_click(self, **event_args):
     """This method is called when the link is clicked"""
-    pass
+    # Set the active project
+    Globals.currentProject = self.item
+    self.parent.parent.activeProject.text = f"Active Project: {self.item['name']}"
