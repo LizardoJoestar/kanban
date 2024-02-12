@@ -18,6 +18,12 @@ def deleteTask(row):
     row.delete()
 
 @anvil.server.callable(require_user=True)
+def deleteTaskByProject(project):
+  rows = app_tables.task.search(project=project)
+  for row in rows:
+    row.delete()
+
+@anvil.server.callable(require_user=True)
 def updateTask(row_id, value):
   row = app_tables.task.get_by_id(row_id)
   row['status'] = value

@@ -34,4 +34,32 @@ class ProjectCard(ProjectCardTemplate):
     """This method is called when the link is clicked"""
     # Set the active project
     Globals.currentProject = self.item
-    self.parent.parent.activeProject.text = f"Active Project: {self.item['name']}"
+    self.parent.parent.activeProject.text = f"Active Project: {Globals.currentProject['name']}"
+
+  def delete_btn_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    result = alert(
+          content="This will delete the project and all its associated tasks and documentation. It cannot be undone. If you are sure, click DELETE PROJECT.\nIf you prefer not to delete, click Cancel or anywhere else on the screen.",
+          title="WARNING",
+          large=True,
+          buttons=[
+            ("DELETE PROJECT", True),
+            ("Cancel", False)
+          ])
+
+    # Ask again to be sure
+    if result:
+      res = alert(
+          content="Deleting a project also deletes all its tasks and documentation. It cannot be undone. Are you sure?",
+          title="ARE YOU SURE?",
+          large=True,
+          buttons=[
+            ("YES, DELETE", True),
+            ("Cancel", False)
+          ])
+
+      if res:
+        self.deleteALL()
+
+  def deleteALL(self):
+    pass
